@@ -1,0 +1,9 @@
+<header [ngClass]="getBodyClass()">
+    <div class="card">
+        <div class="card-body"><h1 id="reloj">{{varTime}}</h1></div>
+    </div>
+</header>
+
+<div class="body" [ngClass]="getBodyClass()">
+    <router-outlet></router-outlet>
+</div>

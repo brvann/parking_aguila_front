@@ -1,0 +1,38 @@
+.body {
+    width: calc(100% - 5rem);
+    height: 100hv;
+    margin-left: 5rem;
+    z-index: 0;
+    position: relative;
+    top: 0;
+    transition: all .5s ease;
+    background: #fff;
+    padding: 3rem;
+
+}
+
+header {
+    width: calc(100% - 5rem);
+    margin-left: 5rem;
+    z-index: 0;
+    position: relative;
+    top: 0;
+    transition: all .5s ease;
+    background: #fff;
+    padding: 0 1rem;
+
+}
+
+.body-trimmed {
+    width: calc(100% - 16.56rem);
+    margin-left: 16.56rem;
+}
+
+.body-m-screen {
+    width: calc(100% - 5rem);
+    margin-left: 5rem;
+}
+
+#reloj {
+    text-align: end;
+}

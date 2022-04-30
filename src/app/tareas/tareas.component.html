@@ -1,0 +1,70 @@
+<div class="card">
+    <div class="card-body">
+
+        <div class="row-tareas">
+            <div class="col-12">
+              <div class="card">
+                  <div class="card-body">
+                      <button [disabled]="actionLoading" (click)="comienzaMes()" class="btn btn-primary" tabindex="8" rippleEffect>
+                        <span *ngIf="actionLoading" class="spinner-border spinner-border-sm mr-1"></span> Comienza Mes
+                      </button>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12">
+              <div class="card">
+                  <div class="card-body">
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <div class="row d-flex align-items-center">
+                            <div class="form-group col-10">
+                                <h3>Generar Informe de Pagos de Residentes</h3>
+                                <label for="filename">Nombre del archivo</label>
+                                <input
+                                    type="text"
+                                    formControlName="filename"
+                                    class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.filename.errors }"
+                                    placeholder="Rellenar aquí"
+                                    aria-describedby="filename"
+                                    autofocus=""
+                                    tabindex="1"/>
+                                <div *ngIf="submitted && f.filename.errors" class="invalid-feedback">
+                                    <div *ngIf="f.filename.errors.required">Nombre del archivo es requerido</div>
+                                </div>
+                            </div>
+                                
+                            <div class="col-2">
+                                <button [disabled]="loading" class="btn btn-success" tabindex="8" rippleEffect>
+                                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Generar Reporte
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div #reporte>
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Núm. placa</th>
+                                <th scope="col">Tiempo estacionado (min.)</th>
+                                <th scope="col">Cantidad a pagar</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let vehiculo of vehiculos; let i = index">
+                                <td scope="row">{{i + 1}}</td>
+                                <td>{{vehiculo.placa}}</td>
+                                <td>{{vehiculo.tiempo_total}}</td>
+                                <td>$ {{vehiculo.saldo_vencido}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+    </div>
+</div>
